@@ -1,0 +1,16 @@
+[flake8]
+max-line-length = 100
+# E203/W503: Black-compatible formatting
+# E221: multiple spaces before operator -- used deliberately to align
+#       related `st.columns()` / KPI-card blocks for readability
+# E701: multiple statements on one line -- used deliberately for compact
+#       `with col: render_x(...)` one-liners in app.py
+# E402: module level import not at top -- used in tests/conftest.py to
+#       insert the project root onto sys.path before importing `src`
+extend-ignore = E203,W503,E221,E701,E402
+exclude =
+    .git,
+    __pycache__,
+    venv,
+    .venv,
+    notebooks

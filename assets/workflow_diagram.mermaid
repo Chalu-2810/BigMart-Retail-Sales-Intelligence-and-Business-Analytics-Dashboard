@@ -1,0 +1,59 @@
+flowchart TD
+    A["📂 Raw CSV Dataset\n5,681 rows × 11 columns\nBig Mart Sales Data"] --> B
+
+    subgraph L1["🔵 LEVEL 1 — Data Understanding"]
+        B["Load Dataset\nPandas read_csv"]
+        B --> C["Profile Columns\nDtypes · Unique vals · Ranges"]
+        C --> D["Detect Issues\nMissing · Duplicates · Inconsistencies"]
+        D --> E["Descriptive Statistics\nMean · Median · Std · Min · Max"]
+    end
+
+    E --> F
+
+    subgraph L2["🟢 LEVEL 2 — Data Preparation"]
+        F["Standardise Fat Content\n5 variants → 2 clean labels"]
+        F --> G["Impute Item_Weight\nPer-item median → global median"]
+        G --> H["Impute Outlet_Size\nMode per Outlet_Type"]
+        H --> I["Fix Zero Visibility\nPer-category median"]
+        I --> J["Engineer Features\nOutlet_Age · Item_Category\nItem_Outlet_Sales · MRP_Band"]
+    end
+
+    J --> K["💾 cleaned_dataset.csv\n5,681 rows × 15 columns"]
+
+    K --> L
+
+    subgraph L3["🟡 LEVEL 3 — Sales Analysis"]
+        L["Overall KPIs\n₹7,44,710 Revenue · 5,681 Txns"]
+        L --> M["Category Analysis\nby Item_Type · Fat_Content · MRP_Band"]
+        M --> N["Outlet Analysis\nby Outlet · Type · Size · Tier · Year"]
+        N --> O["Product Analysis\nTop / Bottom SKUs · Correlations"]
+    end
+
+    O --> P
+
+    subgraph L4["🟣 LEVEL 4 — Data Visualization"]
+        P["Bar Charts · Pie / Donut"]
+        P --> Q["Treemap · Heatmap · Funnel"]
+        Q --> R["Scatter + OLS · Box · Violin"]
+        R --> S["Line · Histogram · KPI Indicators"]
+    end
+
+    S --> T
+
+    subgraph L5["🔴 LEVEL 5 — Dashboard & Insights"]
+        T["Streamlit App\n6-Page Interactive Dashboard"]
+        T --> U["Sidebar Filters\nType · Tier · Size · Category · MRP"]
+        U --> V["Executive Summary · Sales Analytics\nOutlet · Product · Insights · DQ Report"]
+        V --> W["Business Insights\n8 Findings · 8 Recommendations"]
+    end
+
+    W --> X["📊 Final Deliverable\nInteractive Dashboard + Reports + Presentation"]
+
+    style A fill:#1A3C5E,color:#fff,stroke:#fff
+    style K fill:#27AE60,color:#fff,stroke:#fff
+    style X fill:#E87722,color:#fff,stroke:#fff
+    style L1 fill:#EBF5FB,stroke:#2980B9
+    style L2 fill:#EAFAF1,stroke:#27AE60
+    style L3 fill:#FEFDE7,stroke:#F39C12
+    style L4 fill:#F5EEF8,stroke:#8E44AD
+    style L5 fill:#FDEDEC,stroke:#E74C3C
