@@ -1,379 +1,537 @@
-# 🛒 BigMart Retail Sales Analytics Dashboard
+# 🛒 BigMart Retail Sales Intelligence & Business Analytics Dashboard 📊
 
-### Business Analytics Internship Project — Sysslan IT Solutions
+### 🎓 Business Analytics Internship Project | 🏢 Sysslan IT Solutions
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.32-red?logo=streamlit)
-![Plotly](https://img.shields.io/badge/Plotly-5.19-purple?logo=plotly)
-![Pandas](https://img.shields.io/badge/Pandas-2.1-green?logo=pandas)
-![Tests](https://img.shields.io/badge/tests-30%20passing-brightgreen)
-![CI](https://github.com/<your-username>/<your-repo>/actions/workflows/ci.yml/badge.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+<p align="center">
+  <strong>🚀 Turning Retail Data into Meaningful Business Insights!</strong>
+</p>
 
-**🔗 Live demo:** https://retail-sales-analytics-dashboard-zjtr7dimck2e8v2frrxujc.streamlit.app/
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit&logoColor=white" />
+  <img src="https://img.shields.io/badge/Plotly-Interactive%20Charts-3F4F75?logo=plotly&logoColor=white" />
+  <img src="https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/NumPy-Numerical%20Computing-013243?logo=numpy&logoColor=white" />
+  <img src="https://img.shields.io/badge/Testing-pytest-green" />
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+</p>
 
----
-
-## Table of Contents
-
-1. [Abstract](#-abstract)
-2. [Problem Statement](#-problem-statement)
-3. [Live Demo & Screenshots](#-live-demo--screenshots)
-4. [Project Structure](#%EF%B8%8F-project-structure)
-5. [Dataset Description](#-dataset-description)
-6. [Data & Methodology — Read This](#-data--methodology--read-this)
-7. [Architecture](#-architecture)
-8. [Quick Start](#-quick-start)
-9. [Running with Docker](#-running-with-docker)
-10. [Deploying It Yourself](#-deploying-it-yourself)
-11. [Testing & CI](#-testing--ci)
-12. [Internship Levels Completed](#%EF%B8%8F-internship-levels-completed)
-13. [Key Findings](#-key-findings)
-14. [Tech Stack](#%EF%B8%8F-tech-stack)
-15. [Skills Demonstrated](#-skills-demonstrated)
-16. [Roadmap / Future Work](#-roadmap--future-work)
-17. [Contributing](#-contributing)
-18. [License](#-license)
-19. [Contact](#-contact)
+<p align="center">
+  <a href="(https://bigmart-retail-sales-intelligence-and-business-analytics-dashb.streamlit.app/)">
+    <strong>🌐 LIVE DASHBOARD | EXPLORE THE PROJECT 🚀</strong>
+  </a>
+</p>
 
 ---
 
-## 📌 Abstract
+## 🌟 1. Project Overview
 
-This project delivers a **production-style Business Analytics Dashboard** for
-BigMart retail sales data. It covers the full data analytics lifecycle — raw
-data ingestion and quality assessment, cleaning, statistical analysis,
-interactive visualization, and actionable business-insight generation — built
-with **Streamlit + Plotly**, backed by a **pytest** test suite, and wired into
-a **GitHub Actions CI** pipeline. The work is structured across five
-internship "levels," each with its own module and report.
+Welcome to **BigMart Retail Sales Intelligence & Business Analytics Dashboard**! 🛍️
 
-> **New to this repo?** Start with [Data & Methodology](#-data--methodology--read-this)
-> before looking at any numbers — it explains an important, deliberately
-> disclosed assumption about the sales figures.
+This project was developed as part of my **Business Analytics Internship at Sysslan IT Solutions**, with the objective of transforming raw retail data into meaningful analytical insights and interactive business intelligence visualizations.
 
----
+Using Python and modern data analytics technologies, this project demonstrates an end-to-end analytical workflow, covering:
 
-## 🎯 Problem Statement
+- 📥 Raw data ingestion and understanding.
+- 🧹 Data cleaning and preprocessing.
+- 🔍 Exploratory Data Analysis (EDA).
+- 📊 Statistical analysis and KPI development.
+- 📈 Interactive data visualization.
+- 🏬 Product and outlet performance analysis.
+- 💡 Business insight generation.
+- 🖥️ Interactive dashboard development.
 
-BigMart operates across multiple outlet types, city tiers, and product
-categories. Leadership lacks a unified view of:
+The application brings these capabilities together in a Streamlit dashboard, allowing users to explore retail data through interactive charts, metrics, and analytical views.
 
-- Which product categories drive the most revenue
-- Which outlet types and locations are underperforming
-- How pricing (MRP) correlates with sales
-- Where operational improvements can unlock growth
+### 🎯 Project Highlights
 
-This dashboard addresses each question through data-driven storytelling,
-backed by a tested, reproducible analytics pipeline rather than one-off
-spreadsheet analysis.
-
----
-
-## 📸 Live Demo & Screenshots
-
-- **Live app:** add your deployed Streamlit Cloud / Render / Railway URL here.
-- **Screenshots:** drop PNGs into `assets/screenshots/` (e.g.
-  `executive_summary.png`, `outlet_performance.png`) and reference them here:
-
-  ```markdown
-  ![Executive Summary](assets/screenshots/executive_summary.png)
-  ```
-
-  Screenshots make this README scannable on GitHub and dramatically improve
-  first impressions on a portfolio site — don't skip this step before sharing
-  the link.
+| ⭐ Feature | 📝 Description |
+|---|---|
+| 📊 Data Analytics | End-to-end analytical workflow |
+| 🧹 Data Preparation | Cleaning, transformation, and feature engineering |
+| 🔍 EDA | Statistical and exploratory analysis |
+| 📈 Visualization | Interactive Plotly charts |
+| 🖥️ Dashboard | Streamlit-based analytical interface |
+| 🧪 Testing | Automated tests using pytest |
+| ⚙️ CI Pipeline | GitHub Actions integration |
+| 🐳 Containerization | Docker support |
 
 ---
 
-## 🏗️ Project Structure
+## 🎯 2. Business Problem
 
-```
-Retail_Sales_Dashboard/
-│
-├── app.py                          ← Main Streamlit dashboard (Level 5)
-├── requirements.txt                ← Runtime dependencies
-├── requirements-dev.txt            ← Test/lint dependencies
-├── Dockerfile                      ← Container build for deployment
-├── .flake8                         ← Lint configuration
-├── .gitignore
-├── LICENSE
-├── README.md                       ← This file
-├── RESUME.md                       ← Resume bullets & portfolio copy
-│
-├── .github/workflows/ci.yml        ← Lint + test on every push (GitHub Actions)
-│
-├── data/
-│   ├── raw_dataset.csv             ← Original Big Mart Sales dataset
-│   └── cleaned_dataset.csv         ← Cleaned & enriched dataset (auto-generated)
-│
-├── src/
-│   ├── __init__.py
-│   ├── data_cleaning.py            ← Level 1 & 2: Understanding + Preparation
-│   ├── analysis.py                 ← Level 3: Sales Analysis
-│   ├── visualization.py            ← Level 4: Data Visualization (Plotly)
-│   └── dashboard_utils.py          ← Level 5: Dashboard helpers & UI components
-│
-├── tests/                          ← pytest unit tests (30 tests)
-│   ├── conftest.py
-│   ├── test_data_cleaning.py
-│   └── test_analysis.py
-│
-├── reports/
-│   ├── Data_Understanding_Report.md
-│   ├── Analysis_Report.md
-│   └── Business_Insights_Report.md
-│
-├── notebooks/
-│   └── analysis.ipynb              ← Jupyter notebook walkthrough
-│
-├── assets/                         ← Diagrams & (add your own) screenshots
-│   └── workflow_diagram.mermaid
-│
-└── presentation/
-    └── Internship_Project_PPT.md   ← Presentation slide content
+Retail organizations work with large volumes of product and outlet data. However, raw datasets do not automatically provide the insights needed for informed business decisions.
+
+This project explores several important business questions:
+
+- 🛒 Which product categories contribute the largest share of the calculated sales metric?
+- 🏬 How do different outlet types compare?
+- 🌍 Which location tiers show stronger aggregate performance?
+- 💰 How are product prices distributed?
+- 📦 What patterns can be identified across product categories?
+- 📉 Which outlet characteristics deserve further investigation?
+
+**Our goal:** Transform raw retail data into structured information and interactive business insights. 🚀
+
+---
+
+## 🌐 3. Live Dashboard
+
+<kbd>🚀 EXPLORE THE DEPLOYED APPLICATION</kbd>
+
+🔗 **Live Application:**  
+(https://bigmart-retail-sales-intelligence-and-business-analytics-dashb.streamlit.app/)
+
+📊 Explore the dashboard and interact with its analytical visualizations.
+
+---
+
+## 🖥️ 4. Dashboard Modules
+
+The application brings together multiple analytical views.
+
+| 📌 Module | ✨ Capabilities |
+|---|---|
+| 📊 Executive Summary | Key metrics and analytical overview |
+| 🛍️ Product Analysis | Product category comparisons |
+| 🏬 Outlet Analysis | Outlet types and location analysis |
+| 💰 Pricing Analysis | MRP distributions and price bands |
+| 🧹 Data Quality | Data quality assessment and methodology |
+| 💡 Business Insights | Analytical observations and findings |
+
+---
+
+## 🏗️ 5. Project Architecture
+
+The project follows a modular data analytics pipeline.
+
+```text
+             📥 RAW DATASET
+                    |
+                    ▼
+          🔍 DATA UNDERSTANDING
+                    |
+                    ▼
+           🧹 DATA PREPARATION
+                    |
+                    ▼
+        📊 EXPLORATORY ANALYSIS
+                    |
+                    ▼
+         📈 DATA VISUALIZATION
+                    |
+                    ▼
+          🖥️ STREAMLIT DASHBOARD
+                    |
+                    ▼
+          💡 BUSINESS INSIGHTS
 ```
 
----
-
-## 📊 Dataset Description
-
-| Column | Type | Description |
-|--------|------|-------------|
-| `Item_Identifier` | Categorical | Unique product code (prefix: FD=Food, DR=Drinks, NC=Non-Consumable) |
-| `Item_Weight` | Numeric | Product weight in kg (976 nulls → imputed) |
-| `Item_Fat_Content` | Categorical | Fat label: Low Fat / Regular (5 raw variants → standardised) |
-| `Item_Visibility` | Numeric | Fraction of display shelf area (0–1); 353 zeros fixed |
-| `Item_Type` | Categorical | 16 product categories |
-| `Item_MRP` | Numeric | Maximum Retail Price (₹31.99 – ₹266.59) |
-| `Outlet_Identifier` | Categorical | 10 unique outlet codes |
-| `Outlet_Establishment_Year` | Numeric | Year outlet was established (1985–2009) |
-| `Outlet_Size` | Categorical | Small / Medium / High (1,606 nulls → imputed) |
-| `Outlet_Location_Type` | Categorical | City tier: Tier 1 / Tier 2 / Tier 3 |
-| `Outlet_Type` | Categorical | Grocery Store / Supermarket Type 1/2/3 |
-| `Outlet_Age` *(derived)* | Numeric | 2024 − Establishment Year |
-| `Item_Category` *(derived)* | Categorical | Broad category from identifier prefix |
-| `Item_Outlet_Sales` *(derived, **synthetic** — see below)* | Numeric | Documented sales proxy (₹) |
-| `MRP_Band` *(derived)* | Categorical | 5 price-tier buckets |
-
-**Raw shape:** 5,681 rows × 11 columns
-**Cleaned shape:** 5,681 rows × 15 columns
+Each stage is implemented through dedicated Python modules, supporting maintainability, testing, and reusability.
 
 ---
 
-## ⚠️ Data & Methodology — Read This
+## 📂 6. Repository Structure
 
-**Be upfront about this in interviews and on your portfolio page** — it's a
-sign of analytical maturity, not a flaw to hide.
-
-The CSV used here is the public *BigMart Sales* dataset. **This split does not
-include a real sales/revenue column.** Rather than silently presenting a
-fabricated number as if it were real transactional revenue, this project:
-
-1. **Generates `Item_Outlet_Sales` from a documented, fixed-seed formula**
-   (`Item_MRP × (1 − Item_Visibility) × noise`, `noise ~ U(0.85, 1.15)`,
-   `seed=42`) — see `src/data_cleaning.add_derived_columns` for the exact
-   code and docstring.
-2. **Discloses this in three places**: the code docstring, this README, and
-   a banner on the in-app "Data Quality Report" page — so no one downstream
-   mistakes it for real revenue.
-3. **Tests for reproducibility**: `tests/test_data_cleaning.py::TestAddDerivedColumns::test_synthetic_sales_target_is_reproducible`
-   asserts the formula is deterministic given the same input data.
-
-If you have access to the official BigMart **training** split (which does
-ship with a genuine `Item_Outlet_Sales` column) or real POS data, drop it in
-as `data/raw_dataset.csv` with that column already present, skip the
-synthetic-generation step in `add_derived_columns`, and the rest of the
-pipeline — cleaning, analysis, visualization, dashboard — works unchanged.
-That portability was a deliberate design goal.
-
----
-
-## 🧭 Architecture
-
-End-to-end pipeline, from raw CSV to the live dashboard (Mermaid source in
-[`assets/workflow_diagram.mermaid`](assets/workflow_diagram.mermaid) — paste
-it into [mermaid.live](https://mermaid.live) or view it directly on GitHub):
-
-```mermaid
-flowchart LR
-    A["📂 raw_dataset.csv"] --> B["Level 1\nData Understanding"]
-    B --> C["Level 2\nData Preparation\n(src/data_cleaning.py)"]
-    C --> D["💾 cleaned_dataset.csv"]
-    D --> E["Level 3\nSales Analysis\n(src/analysis.py)"]
-    E --> F["Level 4\nVisualization\n(src/visualization.py)"]
-    F --> G["Level 5\nStreamlit Dashboard\n(app.py)"]
-    G --> H["📊 6-Page Interactive Dashboard"]
+```text
+📁 Retail_Sales_Dashboard/
+│
+├── 🐍 app.py
+├── 📦 requirements.txt
+├── 🧪 requirements-dev.txt
+├── 🐳 Dockerfile
+├── 📖 README.md
+├── 📄 RESUME.md
+├── ⚖️ LICENSE
+│
+├── 📁 data/
+│   ├── 📄 raw_dataset.csv
+│   └── 📄 cleaned_dataset.csv
+│
+├── 📁 src/
+│   ├── 🐍 __init__.py
+│   ├── 🧹 data_cleaning.py
+│   ├── 📊 analysis.py
+│   ├── 📈 visualization.py
+│   └── 🖥️ dashboard_utils.py
+│
+├── 📁 tests/
+│   ├── 🧪 conftest.py
+│   ├── 🧪 test_data_cleaning.py
+│   └── 🧪 test_analysis.py
+│
+├── 📁 reports/
+│   ├── 📄 Data_Understanding_Report.md
+│   ├── 📄 Analysis_Report.md
+│   └── 📄 Business_Insights_Report.md
+│
+├── 📁 notebooks/
+│   └── 📓 analysis.ipynb
+│
+├── 📁 assets/
+│   └── 📊 workflow_diagram.mermaid
+│
+├── 📁 presentation/
+│   └── 📽️ Internship_Project_PPT.md
+│
+└── 📁 .github/
+    └── 📁 workflows/
+        └── ⚙️ ci.yml
 ```
 
 ---
 
-## 🚀 Quick Start
+## 📊 7. Dataset Description
 
-### 1. Clone the repository
+The project uses the public **BigMart Sales dataset**.
+
+The dataset contains product-level and outlet-level attributes that support retail analytics and exploratory investigation.
+
+### 📋 Dataset Features
+
+| 🔑 Feature | 📝 Description |
+|---|---|
+| Item_Identifier | Unique product identifier |
+| Item_Weight | Product weight |
+| Item_Fat_Content | Product fat-content classification |
+| Item_Visibility | Product shelf visibility |
+| Item_Type | Product category |
+| Item_MRP | Maximum Retail Price |
+| Outlet_Identifier | Unique outlet identifier |
+| Outlet_Establishment_Year | Outlet establishment year |
+| Outlet_Size | Outlet size |
+| Outlet_Location_Type | Outlet location tier |
+| Outlet_Type | Outlet classification |
+
+### 📦 Dataset Dimensions
+
+| Dataset | 📏 Rows | 📊 Columns |
+|---|---:|---:|
+| Raw Dataset | 5,681 | 11 |
+| Cleaned Dataset | 5,681 | 15 |
+
+### ⚙️ Engineered Features
+
+The preprocessing pipeline generates additional analytical features:
+
+- 🏬 `Outlet_Age`
+- 🛍️ `Item_Category`
+- 💰 `Item_Outlet_Sales`
+- 🏷️ `MRP_Band`
+
+---
+
+## ⚠️ 8. Data & Methodology: Important Transparency Note
+
+🔍 **Understanding the sales metric is essential when interpreting the results.**
+
+The public BigMart dataset split used in this project does not contain the original `Item_Outlet_Sales` target column.
+
+To demonstrate the complete analytics workflow, the project generates a reproducible synthetic sales proxy using the following documented formula:
+
+```python
+Item_Outlet_Sales = (
+    Item_MRP
+    * (1 - Item_Visibility)
+    * noise
+)
+```
+
+Where:
+
+- 💰 `Item_MRP` represents the product's maximum retail price.
+- 👁️ `Item_Visibility` represents shelf visibility.
+- 🎲 `noise` is generated within the range 0.85 to 1.15.
+- 🔁 A fixed random seed of 42 ensures reproducibility.
+
+### 📌 Important Considerations
+
+- The generated metric is **not actual BigMart revenue**.
+- Dashboard sales-related figures are calculated using this synthetic proxy.
+- Product and outlet comparisons are exploratory results based on the proxy.
+- The MRP–sales relationship is influenced by the formula itself.
+- The findings must not be interpreted as verified real-world financial performance.
+
+The synthetic metric generation is documented in the preprocessing code, README, and dashboard's Data Quality section.
+
+### 🔮 Future Data Integration
+
+The pipeline can be adapted to use the official BigMart training dataset containing genuine `Item_Outlet_Sales` values.
+
+This would allow the analytical findings to be recalculated and validated against actual sales observations.
+
+---
+
+## 📈 9. Key Analytical Findings
+
+The following results were calculated using the cleaned dataset and synthetic sales proxy.
+
+| 📊 Metric | 🏆 Observed Result |
+|---|---:|
+| 💰 Calculated Sales Proxy Total | ₹7,44,710.81 |
+| 🥇 Top Product Category | Snack Foods |
+| 📈 Snack Foods Share | 14.41% |
+| 🏬 Leading Outlet Type | Supermarket Type1 |
+| 📊 Supermarket Type1 Share | 65.74% |
+| 🌍 Leading Location Tier | Tier 3 |
+| 🏆 Highest Calculated Outlet Metric | OUT049 |
+| 🔗 MRP–Proxy Correlation | 0.97 |
+
+> ⚠️ These are exploratory results derived from the synthetic sales proxy, not actual BigMart financial results. The correlation is expected to be high because MRP is an input to the proxy formula.
+
+---
+
+## 🛠️ 10. Technology Stack
+
+| 💻 Technology | 🎯 Purpose |
+|---|---|
+| 🐍 Python | Core programming language |
+| 🐼 Pandas | Data manipulation and analysis |
+| 🔢 NumPy | Numerical computation |
+| 📈 Plotly | Interactive visualizations |
+| 🖥️ Streamlit | Dashboard development |
+| 🤖 Scikit-learn | Supporting analytical utilities |
+| 📊 Statsmodels | Statistical analysis |
+| 🧪 pytest | Automated testing |
+| 📉 pytest-cov | Test coverage |
+| 🧹 Flake8 / Black | Code quality and formatting |
+| 🐙 Git & GitHub | Version control |
+| ⚙️ GitHub Actions | Continuous integration |
+| 🐳 Docker | Containerization |
+
+---
+
+## ⚙️ 11. Installation & Local Setup
+
+Want to run the dashboard on your own computer? Follow these steps! 💻
+
+### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd Retail_Sales_Dashboard
+git clone https://github.com/YOUR_USERNAME/bigmart-retail-sales-analytics-dashboard.git
 ```
 
-### 2. Create a virtual environment (recommended)
+```bash
+cd bigmart-retail-sales-analytics-dashboard
+```
+
+### 2️⃣ Create a Virtual Environment
 
 ```bash
 python -m venv venv
-# Windows
+```
+
+### 3️⃣ Activate the Environment
+
+**🪟 Windows:**
+
+```powershell
 venv\Scripts\activate
-# macOS / Linux
+```
+
+**🐧 macOS / Linux:**
+
+```bash
 source venv/bin/activate
 ```
 
-### 3. Install dependencies
+### 4️⃣ Install Dependencies
 
+```bash
+python -m pip install --upgrade pip
+```
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the dashboard
+### 5️⃣ Launch the Dashboard 🚀
 
 ```bash
 streamlit run app.py
 ```
 
-The app opens automatically at **http://localhost:8501**
+🌐 Open your browser:
 
-### 5. (Optional) Run the pipeline modules standalone
-
-```bash
-python src/data_cleaning.py    # Levels 1 & 2 — prints a data-quality report
-python src/analysis.py         # Level 3 — prints KPIs & business insights
+```text
+http://localhost:8501
 ```
+
+🎉 Your BigMart analytics dashboard is ready!
 
 ---
 
-## 🐳 Running with Docker
+## 🐳 12. Docker Deployment
 
-```bash```bash
+Containerize and run the application using Docker.
 
+### 🔨 Build the Docker Image
+
+```bash
 docker build -t bigmart-dashboard .
+```
+
+### ▶️ Run the Container
+
+```bash
 docker run -p 8501:8501 bigmart-dashboard
 ```
 
-Then open **http://localhost:8501**.
+🌐 Access the application:
+
+```text
+http://localhost:8501
+```
 
 ---
 
-## ☁️ Deploying It Yourself
+## 🧪 13. Testing & Quality Assurance
 
-The fastest free option is **Streamlit Community Cloud**:
+Quality and reliability are supported through an automated testing workflow.
 
-1. Push this repo to GitHub.
-2. Go to [share.streamlit.io](https://share.streamlit.io), connect your
-   GitHub account, and select this repo + `app.py` as the entry point.
-3. Copy the resulting public URL into the **Live demo** line at the top of
-   this README (and into `RESUME.md`).
-
-Render, Railway, and Fly.io all work too via the included `Dockerfile`.
-
----
-
-## 🧪 Testing & CI
+### 🔬 Run Unit Tests
 
 ```bash
 pip install -r requirements.txt -r requirements-dev.txt
+```
+
+```bash
+pytest tests/ -v
+```
+
+### 📊 Generate Test Coverage
+
+```bash
 pytest tests/ -v --cov=src --cov-report=term-missing
+```
+
+### 🧹 Run Code Quality Checks
+
+```bash
 flake8 src tests app.py
 ```
 
-- **30 unit tests** across the data-cleaning and analysis modules — covering
-  null-handling, category standardization, reproducibility of the synthetic
-  sales formula, KPI correctness, and sort/aggregation correctness.
-- **GitHub Actions** (`.github/workflows/ci.yml`) runs the lint + test suite
-  on every push/PR across Python 3.10, 3.11, and 3.12.
+### ⚙️ Continuous Integration
+
+GitHub Actions automatically runs the configured linting and test workflow on pushes and pull requests.
+
+The configured workflow covers:
+
+- 🐍 Python 3.10
+- 🐍 Python 3.11
+- 🐍 Python 3.12
+
+The test suite includes checks for:
+
+- 🧹 Missing-value handling.
+- 🏷️ Category standardization.
+- 🔁 Synthetic sales reproducibility.
+- 📊 KPI correctness.
+- 📈 Aggregation and sorting logic.
 
 ---
 
-## 🗂️ Internship Levels Completed
+## 🎓 14. Internship Levels Completed
 
-| Level | Title | Status |
-|-------|-------|--------|
-| 1 | Data Understanding | ✅ Complete |
-| 2 | Data Preparation | ✅ Complete |
-| 3 | Sales Analysis | ✅ Complete |
-| 4 | Data Visualization | ✅ Complete |
-| 5 | Dashboard & Insights | ✅ Complete |
+The project is organized into five development levels.
 
----
-
-## 📈 Key Findings
-
-*(Computed on the cleaned dataset — see the Data & Methodology section above
-regarding `Item_Outlet_Sales`.)*
-
-- **Total Revenue:** ₹7,44,710.81 across 5,681 transactions
-- **Top Category:** Snack Foods (14.41% revenue share)
-- **Best Outlet Type:** Supermarket Type1 (65.74% of total revenue)
-- **Top City Tier:** Tier 3 outlets lead in aggregate sales
-- **MRP–Sales Correlation:** 0.97 (expected — it's a direct input to the
-  synthetic-sales formula; on real data this would be a genuine finding to
-  validate, not an assumption to disclose)
-- **Highest-Revenue Outlet:** OUT049
+| 🎯 Level | 📚 Work Completed | 🚦 Status |
+|---|---|---|
+| 1️⃣ | Data Understanding | ✅ Completed |
+| 2️⃣ | Data Preparation | ✅ Completed |
+| 3️⃣ | Sales Analysis | ✅ Completed |
+| 4️⃣ | Data Visualization | ✅ Completed |
+| 5️⃣ | Dashboard & Business Insights | ✅ Completed |
 
 ---
 
-## 🛠️ Tech Stack
+## 💡 15. Skills Demonstrated
 
-| Tool | Purpose |
-|------|---------|
-| Python 3.10+ | Core language |
-| Pandas / NumPy | Data manipulation & numerical operations |
-| Plotly | Interactive charts |
-| Streamlit | Dashboard framework |
-| Scikit-learn / Statsmodels | OLS trendlines & statistical utilities |
-| pytest / pytest-cov | Unit testing & coverage |
-| flake8 / black | Linting & formatting |
-| GitHub Actions | CI (lint + test on every push) |
-| Docker | Containerized deployment |
+### 📊 Data Analytics
+- 🔍 Data profiling and quality assessment.
+- 🧹 Data cleaning and preprocessing.
+- 📈 Exploratory Data Analysis.
+- ⚙️ Feature engineering.
+- 📉 Statistical analysis and correlation.
+- 🎯 KPI development and aggregation.
 
----
+### 🏢 Business Intelligence
+- 🛍️ Retail analytics.
+- 🏬 Product and outlet comparisons.
+- 📊 Business performance analysis.
+- 💡 Business insight generation.
+- 🖥️ Interactive dashboard development.
 
-## 🎓 Skills Demonstrated
-
-- Data profiling, cleaning, and reproducible feature engineering with Pandas/NumPy
-- Statistical analysis (correlation, distribution, group-wise aggregation)
-- Interactive dashboard design (Streamlit) and chart design (Plotly)
-- Writing and structuring unit tests for a data pipeline (pytest)
-- CI/CD basics (GitHub Actions), linting, and containerization (Docker)
-- Transparent, ethical handling of a data limitation (synthetic-target disclosure)
-- Technical writing: structured reports, architecture diagrams, and READMEs
-
-See [`RESUME.md`](RESUME.md) for ready-to-use resume bullets and interview
-talking points built from this project.
+### 💻 Technical Skills
+- 🐍 Python, Pandas, and NumPy.
+- 📈 Streamlit and Plotly.
+- 🧪 Unit testing with pytest.
+- 🐙 Git and GitHub.
+- ⚙️ GitHub Actions.
+- 🐳 Docker.
+- 📝 Technical documentation.
 
 ---
 
-## 🔭 Roadmap / Future Work
+## 🔭 16. Future Enhancements
 
-- [ ] Swap the synthetic sales proxy for the real BigMart training split or
-      live POS data and re-validate every business insight against it.
-- [ ] Add a lightweight demand-forecasting model (e.g. gradient boosting) as
-      a "Level 6" predictive page.
-- [ ] Move from CSV to a small Postgres/SQLite backend for larger datasets.
-- [ ] Add outlet-level drill-down pages and date-based filtering once a real
-      timestamp column is available.
-- [ ] Add screenshot-based visual regression tests for the dashboard.
+The project can be extended with additional analytical and predictive capabilities.
 
----
-
+- 📥 Integrate genuine BigMart sales data.
+- 📊 Revalidate all business findings against real sales values.
+- 🤖 Introduce a demand forecasting model.
+- 🏬 Add advanced outlet-level drill-down analysis.
+- 🛍️ Develop deeper product-level insights.
+- 🗄️ Introduce a database-backed analytics layer.
+- 🧪 Expand automated testing and dashboard validation.
 
 ---
 
-## 📄 License
+## 🤝 17. Contributions
 
-Released under the [MIT License](LICENSE).
+Ideas, suggestions, and constructive feedback are welcome! 💬
+
+You can contribute by:
+
+- 🐛 Reporting bugs.
+- 💡 Suggesting improvements.
+- 🔧 Enhancing analytical functionality.
+- 📈 Improving visualizations.
+- 🔀 Submitting pull requests.
 
 ---
 
+## 📄 18. License
 
-`[linkedin.com/in/your-handle]` — `[your-portfolio-site.com]`
+⚖️ This project is released under the **MIT License**.
 
-*Internship Cohort — Business Analytics Track*
-*#SysslanITSolutions #SysslanProjects #SysslanInnovation*
+Refer to the `LICENSE` file for additional information.
+
+---
+
+## 👩‍💻 19. Project Information
+
+| 📌 Detail | 📝 Information |
+|---|---|
+| 🚀 Project | BigMart Retail Sales Intelligence & Business Analytics Dashboard |
+| 🏢 Organization | Sysslan IT Solutions |
+| 🎓 Internship Track | Business Analytics |
+| 📊 Domain | Retail Analytics & Business Intelligence |
+| 💻 Programming Language | Python |
+| 🖥️ Framework | Streamlit |
+| 📈 Visualization | Plotly |
+
+
+---
+
+<p align="center">
+  <strong>📊 Turning Data into Insights. 💡 Turning Insights into Better Decisions. 🚀</strong>
+</p>
+
+<p align="center">
+  ⭐ If you find this project interesting, consider giving the repository a star!
+</p>
+
+<p align="center">
+  💙 Built with Python, curiosity, and a data-driven mindset.
+</p>
