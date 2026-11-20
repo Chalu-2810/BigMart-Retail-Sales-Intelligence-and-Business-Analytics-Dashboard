@@ -363,10 +363,6 @@ talking points built from this project.
 
 ---
 
-## 🤝 Contributing
-
-Issues and pull requests are welcome. Please run `pytest` and `flake8`
-locally before opening a PR (the CI pipeline will also check this).
 
 ---
 
@@ -376,15 +372,7 @@ Released under the [MIT License](LICENSE).
 
 ---
 
-## 📬 Contact
 
-**Sysslan IT Solutions**
-🌐 www.sysslan.com
-📧 info@sysslan.com
-LinkedIn: @sysslan-it-solutions
-Instagram: @sysslan-it-solutions
-
-**Project author:** `[Your Name]` — `[your-email@example.com]` —
 `[linkedin.com/in/your-handle]` — `[your-portfolio-site.com]`
 
 *Internship Cohort — Business Analytics Track*
